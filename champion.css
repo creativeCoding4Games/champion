@@ -1,0 +1,20 @@
+@import url(https://fonts.googleapis.com/css?family=Source+Code+Pro|Merriweather|Cinzel);
+
+#title {
+	text-align: center;
+	font-family: 'Cinzel';
+	font-size: 50px;
+	letter-spacing: 20px;
+	display: block;
+	text-shadow: -1px -1px 1px #fff, 1px 1px 1px #000;
+	color: #000000;
+	opacity: 0.6;
+}
+
+#stage {
+	border-style: solid;
+	border-width: 1px;
+	border-color: #808080;
+	display: block;
+	margin: auto;
+}
