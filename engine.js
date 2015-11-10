@@ -40,7 +40,7 @@ ChampionEngine.prototype.login = function (sessionId, client) {
     }
     if (session.time === 0 ) {
       session.clients.map(function (client) {
-        client.sendFrame(INITIAL_OBJECTS);
+        client.setUp(INITIAL_OBJECTS);
       });
     } else {
       var newObjects = [];
@@ -58,7 +58,7 @@ ChampionEngine.prototype.login = function (sessionId, client) {
         });
       }
       session.clients.map(function (client) {
-        client.sendFrame(newObjects);
+        client.loadObjects(newObjects);
       });
     }
     session.time += 1;
@@ -66,5 +66,6 @@ ChampionEngine.prototype.login = function (sessionId, client) {
   }
   session.clients.push(client);
   sendFrame();
+  return session;
 };
 

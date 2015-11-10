@@ -3,6 +3,13 @@
 <head>
 	<link href = "./champion.css" rel = "stylesheet" type = "text/css" media = "screen" />
 	<script src = "./render.js"></script>
+	<script src = "./engine.js"></script>
+  <script type = "text/javascript">
+    // TODO - use client/server architecture instead
+    var engine = new ChampionEngine();
+    var renderer = new Renderer();
+    var session = engine.login(null, renderer);
+  </script>
 </head>
 
 <body>
