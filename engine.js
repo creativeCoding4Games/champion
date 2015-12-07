@@ -3,15 +3,19 @@ var Alea = require('alea');
 
 var INITIAL_OBJECTS = [
   {
-    path: 'Assets/thing.png',
+    path: 'assets/poop.gif',
     lifeTime: 400,
-    x: 0,
-    y: 0,
-    z: 20,
+    position: {
+      x: 0,
+      y: 0,
+      z: 20
+    },
     xVel: -4,
     yVel: -10
   }
 ];
+
+module.exports = ChampionEngine;
 
 function ChampionEngine() {
   this.sessions = {};
@@ -25,7 +29,7 @@ ChampionEngine.prototype.login = function (sessionId, client) {
   if (!session) {
     session = this.sessions[sessionId] = {
       id: sessionId,
-      client: [],
+      clients: [],
       prng: new Alea(123),
       time: 0
     };
@@ -35,7 +39,7 @@ ChampionEngine.prototype.login = function (sessionId, client) {
     return Math.floor(session.prng() * (max + 1 - min) + min);
   }
   function sendFrame() {
-    if (!session.client.length) {
+    if (!session.clients.length) {
       return;
     }
     if (session.time === 0 ) {
@@ -44,17 +48,17 @@ ChampionEngine.prototype.login = function (sessionId, client) {
       });
     } else {
       var newObjects = [];
-      if (randomInt(0, 99) === 0) {
+      if (randomInt(0, 29) === 0) {
         newObjects.push({
-          path: 'Assets/thing.png',
-          lifeTime: 400,
+          path: 'assets/poop.gif',
+          lifeTime: 600,
           position: {
-            x: 0,
-            y: 0,
-            z: 20
+            x: 600,
+            y: -100,
+            z: 5
           },
-          xVel: -4,
-          yVel: -10
+          xVel: -1,
+          yVel: 1
         });
       }
       session.clients.map(function (client) {

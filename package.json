@@ -4,6 +4,8 @@
   "description": "this is a readme file for champion",
   "main": "server.js",
   "scripts": {
+    "build": "node_modules/.bin/browserify main.js -o build.js",
+    "watch": "node_modules/.bin/watchify main.js -o build.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "node server.js"
   },
@@ -18,6 +20,12 @@
   },
   "homepage": "https://github.com/creativeCoding4Games/champion#readme",
   "dependencies": {
-    "express": "^4.13.3"
+    "alea": "0.0.9",
+    "express": "^4.13.3",
+    "node-uuid": "^1.4.7"
+  },
+  "devDependencies": {
+    "browserify": "^12.0.1",
+    "watchify": "^3.6.1"
   }
 }
